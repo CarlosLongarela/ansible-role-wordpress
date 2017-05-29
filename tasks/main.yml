@@ -4,8 +4,8 @@
     url: "{{ wp_cli_url }}"
     dest: "{{ wp_cli_path }}"
     force: true
-    owner: www-data
-    group: www-data
+    owner: "{{ wp_cli_webserver_user }}"
+    group: "{{ wp_cli_webserver_group }}"
     mode: 0755
 
 - name: Instalamos los plugins de WP-CLI.
@@ -19,25 +19,25 @@
 - name: Descargamos WordPress.
   command: "{{ wp_cli_bin }} core download --locale='{{ wp_cli_wp_locale }}' --path='{{ wp_cli_wp_path }}' --version='{{ wp_cli_wp_version }}'"
   become: yes
-  become_user: www-data
+  become_user: "{{ wp_cli_webserver_user }}"
 
 - name: Configuramos WordPress.
   command: "{{ wp_cli_bin }} core config --dbname='{{ wp_cli_wp_db }}' --dbuser='{{ wp_cli_wp_db_user }}' --dbpass='{{ wp_cli_wp_db_pass }}' --dbhost='{{ wp_cli_wp_db_host }}' --dbprefix='{{ wp_cli_wp_dp_prefix }}'"
   args:
     creates: "{{ wp_cli_wp_path }}/wp-config.php"
   become: yes
-  become_user: www-data
+  become_user: "{{ wp_cli_webserver_user }}"
 
 - name: Instalamos WordPress.
   command: "{{ wp_cli_bin }} core install --path='{{ wp_cli_wp_path }}' --url='{{ wp_cli_wp_url }}' --title='{{ wp_cli_wp_title }}' --admin_user='{{ wp_cli_wp_admin_user }}' --admin_password='{{ wp_cli_wp_admin_password }}' --admin_email='{{ wp_cli_wp_admin_email }}' --skip-email"
   become: yes
-  become_user: www-data
+  become_user: "{{ wp_cli_webserver_user }}"
 
 - name: Permisos de carpetas y archivos en WordPress (Folders 755, Files 644)
   file:
     path: "{{ wp_cli_wp_path }}"
     mode: u=rwX,g=rX,o=rX
-    owner: www-data
-    group: www-data
+    owner: "{{ wp_cli_webserver_user }}"
+    group: "{{ wp_cli_webserver_group }}"
     recurse: yes
 

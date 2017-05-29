@@ -36,6 +36,9 @@ Role Variables
     wp_cli_wp_admin_password: "strongpassword"
     wp_cli_wp_admin_email: "info@example.com"
 
+    wp_cli_webserver_user: www-data
+    wp_cli_webserver_group: www-data
+
 Dependencies
 ------------
 
