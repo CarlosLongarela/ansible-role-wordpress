@@ -1,0 +1,21 @@
+---
+wp_cli_url: "https://raw.github.com/wp-cli/builds/gh-pages/phar/wp-cli.phar"
+wp_cli_bin: "wp"
+wp_cli_path: "/usr/bin/{{ wp_cli_bin}}"
+wp_cli_packages: []
+
+wp_cli_wp_locale: "es_ES"
+wp_cli_wp_path: "/home/webs/wordpress"
+wp_cli_wp_version: "latest"
+
+wp_cli_wp_db: "dbname"
+wp_cli_wp_db_user: "dbuser"
+wp_cli_wp_db_pass: "dbpassword"
+wp_cli_wp_db_host: "localhost"
+wp_cli_wp_dp_prefix: "wp_"
+
+wp_cli_wp_url: "example.com"
+wp_cli_wp_title: "WordPress Site"
+wp_cli_wp_admin_user: "supervisor"
+wp_cli_wp_admin_password: "strongpassword"
+wp_cli_wp_admin_email: "info@example.com"
