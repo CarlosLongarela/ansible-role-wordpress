@@ -63,7 +63,7 @@ Example Playbook
 
         wp_cli_wp_url: "https://example.com"
         wp_cli_wp_title: "My WordPress Site"
-        wp_cli_wp_admin_user: "mysupervisor"
+        wp_cli_wp_admin_user: "mysuser"
         wp_cli_wp_admin_password: "mystrongpassword"
         wp_cli_wp_admin_email: "myinfo@example.com"
 
