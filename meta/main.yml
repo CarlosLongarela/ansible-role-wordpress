@@ -19,7 +19,4 @@ galaxy_info:
     - cms
     - wordpress
 
-dependencies:
-  - CarlosLongarela.mariadb
-  - CarlosLongarela.nginx
-  - CarlosLongarela.php7
+dependencies: []
